@@ -9,21 +9,26 @@ class Cliente{
 
 class ContaCorrente{
     agencia;
-    saldo;
+    _saldo = 0;
 
-
+    //toda vez que vir o underline na frente do atributo, quer dizer que é um campo privado, isso é uma conveção da comunidade, porém o atributo não fica de fato privado. Somente quando se usa o # na frente do atributo, é que fica como campo privado de verdade. 
+    
+    //verifique no github o uso do #: https://github.com/tc39/proposal-class-fields
 
     //sacar == comportamento (método)
     sacar(valor){
-        if(this.saldo >= valor){
-            this.saldo -= valor;
+        if(this._saldo >= valor){
+            this._saldo -= valor;
         }
     }
 
     depositar(valor){
         if(valor > 0){
-            this.saldo += valor;
+            this._saldo += valor;
+            console.log(this._saldo);
         }
+
+        //como o this.#saldo é um campo privado, ele não pode ser acessado (visto) fora da classe que ele foi definido
     }
 };
 
@@ -33,10 +38,17 @@ cliente1.nome = "Danielle";
 // console.log(cliente1);
 
 const contaCorrenteDanielle = new ContaCorrente();
-contaCorrenteDanielle.saldo = 100;
+
+
+contaCorrenteDanielle._saldo = 10000;
+
+
 contaCorrenteDanielle.agencia = 1001;
 
 contaCorrenteDanielle.depositar(100);
+contaCorrenteDanielle.depositar(200);
+contaCorrenteDanielle.depositar(300);
+
 contaCorrenteDanielle.sacar(50);
 
 console.log(contaCorrenteDanielle);
