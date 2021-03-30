@@ -12,6 +12,7 @@ class ContaCorrente{
     saldo;
 
 
+
     //sacar == comportamento (método)
     sacar(valor){
         if(this.saldo >= valor){
@@ -28,21 +29,20 @@ class ContaCorrente{
 
 const cliente1 = new Cliente();
 cliente1.nome = "Danielle";
-// cliente1.cpf = 17320610760;
+// cliente1.cpf = 112345678910;
 // console.log(cliente1);
 
 const contaCorrenteDanielle = new ContaCorrente();
-contaCorrenteDanielle.saldo = 0;
+contaCorrenteDanielle.saldo = 100;
 contaCorrenteDanielle.agencia = 1001;
 
-console.log(contaCorrenteDanielle.saldo);
-contaCorrenteDanielle.depositae += 100;
-contaCorrenteDanielle.. += -1;
-console.log(contaCorrenteDanielle.saldo);
+contaCorrenteDanielle.depositar(100);
 contaCorrenteDanielle.sacar(50);
-console.log(contaCorrenteDanielle.saldo);
+
+console.log(contaCorrenteDanielle);
+
 
 // const cliente2 = new Cliente();
 // cliente2.nome = "Alex";
-// cliente2.cpf = 36131957630;
+// cliente2.cpf = 112345678910;
 // console.log(cliente2);
